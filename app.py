@@ -16,6 +16,11 @@ parser = reqparse.RequestParser()
 parser.add_argument('text', required=True, help='Text field is required.')
 
 
+@app.route('/loaderio-a671a78cb4c0fc9aeb348ff183ce7147/')
+def loader_io():
+    return "loaderio-a671a78cb4c0fc9aeb348ff183ce7147"
+
+
 class LanguageDetect(Resource):
     def post(self):
         # Verify input
@@ -52,6 +57,7 @@ class LanguageDetect(Resource):
 # noinspection PyTypeChecker
 # https://github.com/flask-restful/flask-restful/commit/f815437784273e5e16f43d1253d59e585cf411f6
 api.add_resource(LanguageDetect, '/api/v1/text')
+api.add_resource(LoaderIo, )
 
 if __name__ == '__main__':
     app.run(debug=True)

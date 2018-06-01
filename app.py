@@ -57,7 +57,6 @@ class LanguageDetect(Resource):
 # noinspection PyTypeChecker
 # https://github.com/flask-restful/flask-restful/commit/f815437784273e5e16f43d1253d59e585cf411f6
 api.add_resource(LanguageDetect, '/api/v1/text')
-api.add_resource(LoaderIo, )
 
 if __name__ == '__main__':
     app.run(debug=True)

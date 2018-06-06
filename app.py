@@ -48,12 +48,19 @@ class LanguageDetect(Resource):
             return jsonify({
                 "text": input_text,
                 "language": language_name,
-                "confidence": language_confidence
+                "confidence": language_confidence,
+                "status": "OK - All good! "
             })
 
         except LangDetectException:
-            abort(400, text="Bad Request - Text must not have numeric or special characters only and must "
-                            "contain at least 1 letter.")
+            return jsonify({
+
+                "text": input_text,
+                "language": "None",
+                "confidence": 0,
+                "status": "BAD - Your input is not correct. Text must not have numeric or special characters ONLY and "
+                          "must contain at least 1 letter."
+            })
 
 
 # noinspection PyTypeChecker

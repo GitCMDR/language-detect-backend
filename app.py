@@ -1,11 +1,13 @@
 from flask import Flask, jsonify
 from flask_restful import Resource, Api, reqparse, abort
+from flask_cors import CORS  # Used to allow X Origin requests
 
 from langdetect import DetectorFactory, detect_langs
 from langdetect.lang_detect_exception import LangDetectException
 from iso639 import languages
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 # Language Detector is non-deterministic. Enforce consistent results by defining a seed value.
